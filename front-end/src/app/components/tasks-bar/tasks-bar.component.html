@@ -1,0 +1,18 @@
+<div>
+  <div class="row col-md-12">
+    <div class="col-md-8">
+        <mat-form-field style="max-width: 500px; width: 100%;">
+          <input  matInput placeholder="Search" [(ngModel)]="keyWord" />
+        </mat-form-field>
+        <button mat-raised-button color="primary" style="margin-left: 2%;" (click)="onSearchItem()">Search</button>
+      </div>
+        <div class="col-lg-4 btn-group">
+            <div class="btn-toolbar">
+                <button mat-raised-button color="primary" style="margin: 10px;" (click)="onAddItem()">Add</button>
+                <button mat-raised-button color="warn" (click)="onDeleteItem()">Delete</button>
+             </div>
+          </div>
+
+      
+  </div>
+</div>

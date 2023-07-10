@@ -1,0 +1,43 @@
+<div class="container" style="margin-bottom: 2%">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        Action
+        <Span>
+          <mat-checkbox
+            color="primary"
+            [checked]="isAllCheckboxChecked()"
+            (change)="onMasterCheckboxChange($event)"
+            style="margin-left: 10%"
+            >All</mat-checkbox
+          >
+        </Span>
+      </th>
+      <td mat-cell *matCellDef="let row; let i = index">
+        <button mat-icon-button color="primary" (click)="editItem(row)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <Span>
+          <mat-checkbox
+            [(ngModel)]="dataSource[i].checked"
+            color="primary"
+            style="margin-left: 10%"
+          ></mat-checkbox>
+        </Span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
